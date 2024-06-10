@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-image:url("https://media.istockphoto.com/id/960357234/photo/car-moving-on-highway-at-night.jpg?s=1024x1024&w=is&k=20&c=Csdt-F0pmeFhejww6Pd-fxjFt99C0DlzyTCSo-RZgr0=");
+}
+
+h1 {
+    text-align:flex;
+    color: #f0f0f0;
+    align-content: flex-end;
+}
+
+nav {
+            display: flex;
+            gap: 0.5rem;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        a {
+            flex: 2;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid;
+            padding: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.5s ease-out;
+        }
+        a:hover,
+        a:focus {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0px;
+            margin: 80px 20px 20px 20px; /* Adjust margin to account for fixed nav bar */
+        }
+
+.calculator {
+    flex: 1 1 50px; /* Make all boxes the same size */
+    padding: 20px; /* Add padding to create space inside the box */
+    background-color: #f0f0f0; /* Set background color */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(243, 235, 235, 0.1); /* Add a shadow effect */
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: calc(100% - 16px); /* Adjust width to accommodate padding and borders */
+    padding: px;
+    margin-bottom: 10px;
+    border: 1px solid #1a0fe5;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 9px;
+    background-color: #1a0fe5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1a0fe5;
+}
+.conclusion-box{
+   
+            background-color: #f0f0f030; /* Set the background color */
+            padding: 8px;
+            border-top: 2px solid #333; /* Add border with color */
+           text-decoration-color: brown;
+            text-align: center;
+            scroll-margin-bottom: 4px;
+}
+.pt{
+    border-radius: 2px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: rgba(255, 0, 0, 0.295);
+    margin-left: 350px;
+    margin-right: 350px;
+    
+}
+.glow {
+    box-shadow: 0 0 20px 5px rgb(241, 245, 245);
+    transition: box-shadow 0.5s ease-in-out;
+}
+.social-logos {
+    display: flex;
+    gap: 20px; /* Adjust the gap as needed */
+    margin-right: 50px;
+    width: 60px;
+}
+
+.social-logos a {
+    display: inline-block;
+}
+

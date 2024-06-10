@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Distance Calculator</title>
+
+    
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<nav>
+    <a href="Calculate-Distance">Calculate Distance</a>
+    <a href="Calculate-Speed">Calculate Speed</a>
+    <a href="Calculate-Time">Calculate Time</a>
+    <a href="kmToMeters">kmToMeters</a>
+    <a href="MetersToKm">MetersToKm</a>
+</nav>
+
+<div class="container">
+    <h1><span>Time & Distance </span><br><span>Calculator</span></h1>
+
+    <div class="calculator" id="Calculate-Distance">
+        <h2>Calculate Distance🛣</h2>
+        <label for="speed">Speed (Km/hr):</label>
+        <input type="number" id="speed" step="0.1">
+        <label for="time">Time (hours):</label>
+        <input type="number" id="time" step="0.1">
+        <button onclick="calculateDistance()">Calculate Distance</button>
+        <p id="distanceResult"></p>
+    </div>
+
+    <div class="calculator" id="Calculate-Speed">
+        <h2>Calculate Speed🚅</h2>
+        <label for="distance">Distance (Km):</label>
+        <input type="number" id="distance" step="0.1">
+        <label for="timeSpeed">Time (hours):</label>
+        <input type="number" id="timeSpeed" step="0.1">
+        <button onclick="calculateSpeed()">Calculate Speed</button>
+        <p id="speedResult"></p>
+    </div>
+
+    <div class="calculator" id="Calculate-Time">
+        <h2>Calculate Time⏰</h2>
+        <label for="distanceTime">Distance (Km):</label>
+        <input type="number" id="distanceTime" step="0.1">
+        <label for="speedTime">Speed (Km/hr):</label>
+        <input type="number" id="speedTime" step="0.1">
+        <button onclick="calculateTime()">Calculate Time</button>
+        <p id="timeResult"></p>
+    </div>
+
+    <div class="calculator" id="kmToMeters">
+        <h2>Convert Km(hours) to Meters/sec</h2>
+        <label for="km">Kilometers/hours:</label>
+        <input type="number" id="km" step="0.1">
+        <button onclick="convertKmToMeters()">Convert</button>
+        <p id="kmResult"></p>
+    </div>
+    <div class="calculator" id="MetersToKm">
+        <h2>Convert <br>Meters/sec to Km/hours</h2>
+        <label for="meters">Meters/sec:</label>
+        <input type="number" id="meters" step="0.1">
+        <button onclick="convertMetersToKm()">Convert</button>
+        <p id="metersResult"></p>
+    </div>
+</div>
+<div class="social-logos">
+    <a href="https://www.instagram.com/srikanth_netha_01/" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile " target=_blank">
+    <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" ></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <a href="mailto:usrikanthuyyala@gmail.com" target="_blank">
+        <ion-icon name="mail-unread-outline"></ion-icon>
+    </a>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<a href="http://" target="_blank" rel="noopener noreferrer">copyright©UyyalaSrikanth</a>
+  </div>
+
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove glow from all divs
+        document.querySelectorAll('.calculator').forEach(div => {
+            div.classList.remove('glow');
+        });
+
+        // Add glow to the active div
+        const activeDiv = document.querySelector(`#${this.getAttribute('href').replace(/\s+/g, '-')}`);
+        if (activeDiv) {
+            activeDiv.classList.add('glow');
+        }
+    });
+});
+
+        function calculateDistance() {
+            var speed = parseFloat(document.getElementById("speed").value);
+            var time = parseFloat(document.getElementById("time").value);
+            fetch(`/api/calculateDistance?speed=${speed}&time=${time}`)
+                .then(response => response.json())
+                .then(data => document.getElementById("distanceResult").innerText = "Distance (Km): " + data);
+        }
+
+        function calculateSpeed() {
+            var distance = parseFloat(document.getElementById("distance").value);
+            var time = parseFloat(document.getElementById("timeSpeed").value);
+            fetch(`/api/calculateSpeed?distance=${distance}&time=${time}`)
+                .then(response => response.json())
+                .then(data => document.getElementById("speedResult").innerText = "Speed (Km/hr): " + data);
+        }
+
+        function calculateTime() {
+            var distance = parseFloat(document.getElementById("distanceTime").value);
+            var speed = parseFloat(document.getElementById("speedTime").value);
+            fetch(`/api/calculateTime?distance=${distance}&speed=${speed}`)
+                .then(response => response.json())
+                .then(data => document.getElementById("timeResult").innerText = "Time (hours): " + data);
+        }
+
+        function convertKmToMeters() {
+            var km = parseFloat(document.getElementById("km").value);
+            fetch(`/api/kmToMeters?km=${km}`)
+                .then(response => response.json())
+                .then(data => document.getElementById("kmResult").innerText = "Meters/Sec: " + data);
+        }
+
+        function convertMetersToKm() {
+            var meters = parseFloat(document.getElementById("meters").value);
+            fetch(`/api/metersToKm?meters=${meters}`)
+                .then(response => response.json())
+                .then(data => document.getElementById("metersResult").innerText = "Kilometers/hour: " + data);
+        }
+        
+    </script>
+
+</body>  
+
+</html>
+
+
