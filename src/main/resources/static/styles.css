@@ -38,15 +38,15 @@ nav {
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
-            padding: 20px;
+            gap: 10px;
+            padding: 50px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 0px;
-            margin: 80px 20px 20px 20px; /* Adjust margin to account for fixed nav bar */
+            margin: 10px 20px 20px 50px; /* Adjust margin to account for fixed nav bar */
         }
 
 .calculator {
-    flex: 1 1 50px; /* Make all boxes the same size */
+    flex: 50px 50px 50px; /* Make all boxes the same size */
     padding: 20px; /* Add padding to create space inside the box */
     background-color: #f0f0f0; /* Set background color */
     border: 1px solid #ccc; /* Add border */
